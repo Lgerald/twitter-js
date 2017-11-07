@@ -4,6 +4,9 @@ const chalk = require('chalk');
 const nunjucks = require('nunjucks');
 const morgan = require('morgan');
 
+const routes = require('./routes');
+app.use('/', routes);
+
 var locals = {
   title: 'An Example',
   people: [
@@ -28,11 +31,12 @@ app.use(morgan('dev'))
 //   next()
 // })
 
-app.get('/', function(req, res, next){
-  // res.send('Welcome to FakeTwitter!')
-  res.render( 'index', {title: 'Hall of Fame', people: people} );
-});
+// app.get('/', function(req, res, next){
+//   // res.send('Welcome to FakeTwitter!')
+//   res.render( 'index', {title: 'Hall of Fame', people: people} );
+// });
 
 app.listen(3000, function(){
   console.log(chalk.blue('Server listening on Port 3000!'))
 });
+
